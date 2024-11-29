@@ -1,28 +1,19 @@
-def calculate_pi(iterations):
-    """calculate an approximation of PI using the given number of iterations."""
-    pi_approximation = 0
-    for i in range(iterations):
-        # Add or subtract terms based on the series
-        term = (-1) ** i / (2 * i + 1)
-        pi_approximation += term
-    return 4 * pi_approximation
-
+def calculate_pi(n):
+    """Approximate PI using the given number of iterations."""
+    return 4 * sum((-1) ** i / (2 * i + 1) for i in range(n))
+# Leibniz formula all in one line
 def main():
-    print("Welcome to the PI Approximation Program!")
+    print("PI Approximation Program")
     while True:
-        try:
-            # Prompt user for number of iterations
-            user_input = input("enter the number of iterations (or type 'exit' to quit): ").strip()
-            if user_input.lower() == "exit":
-                print("bye!")
-                break
-            
-            # Calculate and display the approximation
-            pi_value = calculate_pi(iterations)
-            print(f"approximation of PI after {iterations} iterations: {pi_value}")
-        
-        except ValueError:
-            print("invalid")
+        user_input = input("Enter iterations (or 'exit' to quit): ").strip()
+        if user_input.lower() == "exit":
+            print("Goodbye!")
+            break
+        if user_input.isdigit():
+            n = int(user_input)
+            print(f"Approximation of PI after {n} iterations: {calculate_pi(n)}")
+        else:
+            print("Invalid")
 
 if __name__ == "__main__":
     main()
