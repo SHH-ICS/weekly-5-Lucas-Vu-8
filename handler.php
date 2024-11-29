@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $iterations = intval($_POST['iterations']);
     if ($iterations > 0) {
       $pi_value = calculate_pi($iterations);
-      echo "<h1>Approximation of π</h1>";
+      echo "<h1>Approximation of PI</h1>";
       echo "<p>Number of iterations: $iterations</p>";
-      echo "<p>Approximated value of π: $pi_value</p>";
+      echo "<p>Approximated value of PI: $pi_value</p>";
       echo '<a href="index.html">Back to Calculator</a>';
     } else {
       echo "<p>Please enter a positive integer greater than 0.</p>";
