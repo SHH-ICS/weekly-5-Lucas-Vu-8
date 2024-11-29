@@ -1,23 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <title>Welcome Page</title>
-  </head>
+<?php
+function calculate_pi($iterations)
+{
+  $pi = 0;
+  for ($i = 0; $i < $iterations; $i++) {
+    $term = pow(-1, $i) / (2 * $i + 1);
+    $pi += $term;
+  }
+  return 4 * $pi;
+}
 
-  <body>
-    
-    <?php
-    $myVariable = "";
-    if ( isset( $_POST['myVariable'] ) ){
-      $myVariable = $_POST['myVariable'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST['iterations']) && is_numeric($_POST['iterations'])) {
+    $iterations = intval($_POST['iterations']);
+    if ($iterations > 0) {
+      $pi_value = calculate_pi($iterations);
+      echo "<h1>Approximation of π</h1>";
+      echo "<p>Number of iterations: $iterations</p>";
+      echo "<p>Approximated value of π: $pi_value</p>";
+      echo '<a href="index.html">Back to Calculator</a>';
+    } else {
+      echo "<p>Please enter a positive integer greater than 0.</p>";
+      echo '<a href="index.html">Back to Calculator</a>';
     }
-    echo "<h1>My Program</h1>\n";
-    echo "<p>My Variable is = ".$myVariable."</p>\n";
-    ?>
-    
-  </body>
-  
-</html>
+  } else {
+    echo "<p>Invalid input. Please enter a positive integer.</p>";
+    echo '<a href="index.html">Back to Calculator</a>';
+  }
+}

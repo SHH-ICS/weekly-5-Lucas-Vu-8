@@ -1,19 +1,16 @@
-<!DOCTYPE HTML>
-  <head>
-    <title></title>
-
-    <!-- MDL Inclusions -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-  </head>
-
-  <body>
-  
-    <form name="myForm" action="handler.php" method="POST">
-          
-    </form>
-
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>π Calculator</title>
+</head>
+<body>
+  <h1>π Calculator using Gregory-Leibniz Series</h1>
+  <form action="handler.php" method="POST">
+    <label for="iterations">Enter the number of iterations:</label>
+    <input type="number" id="iterations" name="iterations" min="1" required>
+    <button type="submit">Calculate π</button>
+  </form>
+</body>
 </html>
