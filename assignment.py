@@ -1,7 +1,7 @@
 def calculate_pi(n):
     """Approximate PI using the given number of iterations."""
     return 4 * sum((-1) ** i / (2 * i + 1) for i in range(n))
-# Leibniz formula all in one line
+
 def main():
     print("PI Approximation Program")
     while True:
